@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.microservice.order.model.OrderDetails;
+import com.microservice.order.utils.RestEndPoints;
 
 import reactor.core.publisher.Mono;
 
@@ -15,7 +16,7 @@ import reactor.core.publisher.Mono;
 public class EmailWebClient {
 
 	private static final Logger LOGGER = LogManager.getLogger(EmailWebClient.class);
-	WebClient emailClient = WebClient.create("http://localhost:9091/");
+	WebClient emailClient = WebClient.create(RestEndPoints.EMAIL);
 
 	public String sendOrderedEmail(OrderDetails orderDetails) {
 		LOGGER.info("Start of sendOrderedEmail API");

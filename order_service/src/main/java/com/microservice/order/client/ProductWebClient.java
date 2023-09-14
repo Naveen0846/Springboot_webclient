@@ -9,13 +9,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.microservice.order.model.OrderDetails;
 import com.microservice.order.response.ResponseVO;
+import com.microservice.order.utils.RestEndPoints;
 
 @Service
 public class ProductWebClient {
 
 	private static final Logger LOGGER = LogManager.getLogger(ProductWebClient.class);
 
-	WebClient productClient = WebClient.create("http://localhost:9092/product/");
+	WebClient productClient = WebClient.create(RestEndPoints.PRODUCT);
 
 	public ResponseVO checkproductExists(OrderDetails orderDetails) {
 		LOGGER.info("Start of checkproductExists API");
